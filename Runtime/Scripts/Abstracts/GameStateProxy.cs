@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+
 namespace GameStateMachineCore
 {
     public class GameStateProxy : MonoBehaviour

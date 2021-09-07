@@ -12,9 +12,9 @@ using UnityEngine;
 public class GameStatesManager : RuntimeScriptableSingleton<GameStatesManager>
 {
 #if UNITY_EDITOR
-        [MenuItem("Other/GameStateMachine/PrintUpperState")]
+        [MenuItem("GameStateMachine/PrintUpperState")]
         public static void PrintUpperState() => Debug.Log(UpperState);
-        [MenuItem("Other/GameStateMachine/PrintStateChain")]
+        [MenuItem("GameStateMachine/PrintStateChain")]
         public static void PrintStateChain()
         {
             string str = string.Empty;
@@ -26,10 +26,6 @@ public class GameStatesManager : RuntimeScriptableSingleton<GameStatesManager>
             Debug.Log(str);
         }
 #endif
-
-
-    [ShowInInspector] public List<BallHolder> Holders => new List<BallHolder>(BallHolder.AvailableBallHolders); 
-    
     public static IReadOnlyList<BaseGameState> ActiveStates => StatesStack.ToArray();
     [ShowInInspector]  public static readonly Stack<BaseGameState> StatesStack = new Stack<BaseGameState>();
     public static  BaseGameState UpperState => StatesStack == null || StatesStack.Count == 0?null:StatesStack.Peek();

@@ -20,18 +20,18 @@ namespace GameStateMachineCore
         private BaseGameState _currentState;
         public IState CurrentState => _currentState;
 
-        private static MonoBehaviour _proxy;
-
-        protected static MonoBehaviour Proxy
+        private static GameStateProxy proxy;
+        protected static GameStateProxy Proxy
         {
             get
             {
-                if (!_proxy)
+                if (!proxy)
                 {
-                    _proxy = new GameObject().AddComponent<Empty>();
-                    _proxy.name = $"{typeof(T).Name} Proxy";
+                    proxy = new GameObject().AddComponent<GameStateProxy>();
+                    proxy.name = $"{typeof(T).Name} Proxy";
+                    proxy.Initialize(Instance);
                 }
-                return _proxy;
+                return proxy;
             }
         }
         

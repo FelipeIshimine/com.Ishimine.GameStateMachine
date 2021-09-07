@@ -5,8 +5,6 @@ using UnityEditor;
 #endif
 using UnityEngine;
 
-namespace GameStateMachineCore
-{
     public abstract class GameState<T> : BaseGameState where T : GameState<T>
     {
         public static T Instance { get; protected set; }
@@ -94,5 +92,3 @@ namespace GameStateMachineCore
 
         public abstract void ExitSubState();
     }
-
-}

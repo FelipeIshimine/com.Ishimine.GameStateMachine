@@ -1,7 +1,5 @@
 ﻿using UnityEngine;
 
-namespace GameStateMachineCore
-{
     public class GameStateProxy : MonoBehaviour
     {
         public BaseGameState GameState { get; private set; }
@@ -11,4 +9,3 @@ namespace GameStateMachineCore
             GameState = nGameState;
         }
     }
-}
